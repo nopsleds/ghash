@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"crypto/md5"
+	"crypto/sha1"
 	"crypto/sha256"
 	"io"
 	"hash"
@@ -29,6 +30,7 @@ func processFile(filePath string) {
 
 	fmt.Printf("Hashes for file '%v':\n", filePath)
 	applyHash(f, "MD5   ", md5.New())
+	applyHash(f, "SHA1  ", sha1.New())
 	applyHash(f, "SHA256", sha256.New())
 	fmt.Println()
 }
